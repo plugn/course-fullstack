@@ -12,7 +12,49 @@ console.log('action.payload', action.payload);
 			};
 			console.log('new', newState);
 			return newState;
-			break;
+		break;
+
+		case 'DELETE_BOOK':
+			// copy of books array
+			const currentBookToDelete = [...state.books];
+			const indexToDelete = currentBookToDelete.findIndex(function (book) {
+				return book.id === action.payload.id;
+			});
+			if (-1 === indexToDelete) { return state; }
+
+			// use slice to remove the book at the specified index
+			return {
+				books: [
+					...currentBookToDelete.slice(0, indexToDelete),
+					...currentBookToDelete.slice(indexToDelete + 1)
+				]
+			};
+		break;
+
+		case 'UPDATE_BOOK':
+			// copy of books array
+			const currentBookToUpdate = [...state.books];
+
+			const indexToUpdate = currentBookToUpdate.findIndex(function (book) {
+				return book.id === action.payload.id;
+			});
+
+			if (-1 === indexToUpdate) { return state; }
+
+			const newBookToUpdate = {
+				...currentBookToUpdate[indexToUpdate],
+				title: action.payload.title
+			};
+
+			// use slice to remove the book at the specified index
+			return {
+				books: [
+					...currentBookToUpdate.slice(0, indexToUpdate),
+					newBookToUpdate,
+					...currentBookToUpdate.slice(indexToUpdate + 1)
+				]
+			};
+		break;
 	}
 
 	return state;
@@ -22,7 +64,8 @@ console.log('action.payload', action.payload);
 const store = createStore(reducer);
 
 store.subscribe(function () {
-	console.log('current state is: ', store.getState());
+	console.log('current state is: ', store.getState().books);
+	// console.log('current state is: ', store.getState().books.map((book)=>book.id));
 });
 
 // STEP 2 create and dispatch actions
@@ -52,4 +95,19 @@ store.dispatch({
 		description: '3rd',
 		price: 100
 	}]
-})
+});
+
+store.dispatch({
+	type: 'DELETE_BOOK',
+	payload: {
+		id: 1
+	}
+});
+store.dispatch({
+	type: 'UPDATE_BOOK',
+	payload: {
+		id: 2,
+		title: 'make UI development rapid'
+	}
+
+});
