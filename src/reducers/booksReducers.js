@@ -1,6 +1,5 @@
 // BOOKS REDUCERS
 export function booksReducers (state = {books:[]}, action) {
-	console.log('action.payload', action.payload);
 
 	switch (action.type) {
 		case 'POST_BOOKS':
@@ -8,7 +7,6 @@ export function booksReducers (state = {books:[]}, action) {
 			let newState = {
 				books: [...state.books, ...action.payload]
 			};
-			console.log('new', newState);
 			return newState;
 			break;
 
