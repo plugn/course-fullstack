@@ -1,4 +1,10 @@
 // POST books
+export function getBooks() {
+	return {
+		type: 'GET_BOOKS'
+	}
+}
+
 export function postBooks(books) {
 	return {
 		type: 'POST_BOOKS',

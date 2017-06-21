@@ -1,13 +1,33 @@
 // BOOKS REDUCERS
-export function booksReducers (state = {books:[]}, action) {
+// export function booksReducers (state = {books:[]}, action) {
+export function booksReducers (state = {
+	books: [{
+			id: 1,
+			title: 'title 1',
+			description: 'book description 1',
+			price: 33.00
+		},
+		{
+			id: 2,
+			title: 'book title 2',
+			description: 'this is the book description 2',
+			price: 55.00
+		}]
+	}, action) {
 
 	switch (action.type) {
+		case 'GET_BOOKS':
+			// return state.books.concat(action.payload);
+			return {
+				books: [...state, ...state.books]
+			};
+			break;
+
 		case 'POST_BOOKS':
 			// return state.books.concat(action.payload);
-			let newState = {
+			return {
 				books: [...state.books, ...action.payload]
 			};
-			return newState;
 			break;
 
 		case 'DELETE_BOOK':
