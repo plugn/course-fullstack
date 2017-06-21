@@ -5,8 +5,7 @@ import reducers from './reducers/index'
 const store = createStore(reducers);
 
 store.subscribe(function () {
-	console.log('current state is: ', store.getState().books);
-	// console.log('current state is: ', store.getState().books.map((book)=>book.id));
+	console.log('current state is: ', store.getState());
 });
 
 // STEP 2 create and dispatch actions
@@ -51,4 +50,11 @@ store.dispatch({
 		title: 'make UI development rapid'
 	}
 
+});
+
+// CART ACTIONS
+// ADD to CART 'ADD_TO_CART'
+store.dispatch({
+	type: 'ADD_TO_CART',
+	payload: [{id: 2}]
 });
