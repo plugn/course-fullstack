@@ -3,7 +3,7 @@ export function booksReducers (state = {books:[]}, action) {
 	console.log('action.payload', action.payload);
 
 	switch (action.type) {
-		case 'POST_BOOK':
+		case 'POST_BOOKS':
 			// return state.books.concat(action.payload);
 			let newState = {
 				books: [...state.books, ...action.payload]
