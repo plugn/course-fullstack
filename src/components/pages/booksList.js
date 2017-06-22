@@ -5,6 +5,7 @@ import {getBooks} from '../../actions/booksActions'
 import {Grid, Row, Col, Button, Well} from 'react-bootstrap'
 
 import BookItem from './bookItem'
+import BookForm from './bookForm'
 
 class BooksList extends React.Component {
 	componentDidMount() {
@@ -31,6 +32,9 @@ class BooksList extends React.Component {
 		return (
 			<Grid>
 				<Row style={{padding: '1rem'}}>
+					<Col xs={12} sm={6}>
+						<BookForm/>
+					</Col>
 					{booksList}
 				</Row>
 			</Grid>
