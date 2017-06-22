@@ -3,6 +3,7 @@ import {findDOMNode} from 'react-dom'
 import {Well, Panel, Button} from 'react-bootstrap'
 import FieldGroup from '../FieldGroup'
 import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 import {postBooks} from '../../actions/booksActions'
 
 class BookForm extends React.Component {
@@ -12,10 +13,10 @@ class BookForm extends React.Component {
 	}
 
 	handleSubmit() {
-		const book=[{
-			// title: findDOMNode(this.refs.title)
-
-		}]
+		// const book=[{
+		// 	// title: findDOMNode(this.refs.title)
+		//
+		// }]
 	}
 
 	render() {
@@ -48,7 +49,7 @@ class BookForm extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({postBook}, dispatch);
+	return bindActionCreators({postBooks}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(BookForm);
