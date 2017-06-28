@@ -1,5 +1,8 @@
 var path = require('path');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
 
 module.exports = {
 	entry: './src/app.js',
@@ -21,5 +24,15 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	// Optional: Enables reading mapbox token from environment variable
+	plugins: [
+		new ProgressBarPlugin(),
+		new Dotenv({
+			path: './.env', // default
+			safe: false
+		})
+		// new webpack.EnvironmentPlugin(['MapboxAccessToken'])
+	]
+
 };

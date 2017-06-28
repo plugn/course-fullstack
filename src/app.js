@@ -9,13 +9,16 @@ import {addToCart} from './actions/cartActions'
 import {postBooks, deleteBook, updateBook} from './actions/booksActions'
 import BooksList from './components/pages/booksList'
 
+import ExampleMap from './components/Map1'
+
 // STEP 1 create the store
 const middleware = applyMiddleware(logger);
 const store = createStore(reducers, middleware);
 
 render(
 	<Provider store={store}>
-		<BooksList />
+		{/*<BooksList />*/}
+		<ExampleMap/>
 	</Provider>,
 	document.getElementById('app')
 );
