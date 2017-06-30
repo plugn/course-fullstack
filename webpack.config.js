@@ -1,8 +1,7 @@
 var path = require('path');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-
+const ProgressBarPlugin = require('webpack-simple-progress-plugin');
 
 module.exports = {
 	entry: './src/app.js',

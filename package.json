@@ -26,7 +26,6 @@
     "express": "^4.15.3",
     "lodash": "^4.17.4",
     "mapbox-gl": "^0.38.0",
-    "progress-bar-webpack-plugin": "^1.9.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
@@ -38,6 +37,7 @@
     "webpack": "^3.0.0"
   },
   "devDependencies": {
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "webpack-simple-progress-plugin": "0.0.2"
   }
 }
